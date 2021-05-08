@@ -6,8 +6,8 @@ c=(14 7 5 7)
 
 for x in "${a[@]}"; do
     in=false
-    for y in "${b[@]}"; do
-        if [ $x = $y ]; then
+    for j in "${b[@]}"; do
+        if [ "$x" == "$y" ]; then
             z[${#z[@]}]=$x
         fi
     done
@@ -16,10 +16,10 @@ done
 for i in "${c[@]}"; do
     in=false
     for k in "${z[@]}"; do
-        if [ $i = $k ]; then
+        if [ "$i" == "$k" ]; then
             j[${#j[@]}]=$i
         fi
     done
 done
 
-echo ${j[@]}
+echo "${j[@]}"
