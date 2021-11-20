@@ -12,6 +12,7 @@ else
     echo "Error: Directory ${bin_dir} does not exists."
     mkdir $bin_dir
     echo "Directory created"
+    gcc $filename -obin/$filenameWithoutExtension
 fi
 
 ./bin/$filenameWithoutExtension
