@@ -3,16 +3,19 @@
 filename=$1
 filenameWithoutExtension=${filename%%.*}
 bin_dir="$(pwd)/bin/"
-
-if [[ -d $bin_dir ]]; then
-    echo "Directory ${bin_dir} exists."
-    echo $filenameWithoutExtension
-    gcc $filename -obin/$filenameWithoutExtension
+if [[ -f $filename ]]; then
+    if [[ -d $bin_dir ]]; then
+        echo "Directory ${bin_dir} exists."
+        echo $filenameWithoutExtension
+        gcc $filename -obin/$filenameWithoutExtension
+        ./bin/$filenameWithoutExtension
+    else
+        echo "Error: Directory ${bin_dir} does not exists."
+        mkdir $bin_dir
+        echo "Directory created"
+        gcc $filename -obin/$filenameWithoutExtension
+        ./bin/$filenameWithoutExtension
+    fi
 else
-    echo "Error: Directory ${bin_dir} does not exists."
-    mkdir $bin_dir
-    echo "Directory created"
-    gcc $filename -obin/$filenameWithoutExtension
+    echo "File doesn't exist!"
 fi
-
-./bin/$filenameWithoutExtension
