@@ -1,0 +1,8 @@
+a quick brown fox jumps over the lazy dog
+
+cat foo.txt
+apple
+pear
+peach
+banana
+orange
